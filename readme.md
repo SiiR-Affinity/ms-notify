@@ -1,3 +1,8 @@
+# SiiR Modifitcations
+Added support for notification playback and changed default alignment to right-center
+
+**SendAlert({text = 'This is a test normal notification!', type = 'normal', icon = 'fas fa-wallet', soundFile = 'tone2'})**
+
 # Middle's Notifications
 A fork of mythic_notify with added features and UI designs.
 
