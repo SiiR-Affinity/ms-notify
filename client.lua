@@ -9,7 +9,7 @@ AddEventHandler('ms-notify:removeAlert', function(id)
 end)
 
 RegisterCommand('testnotify', function()
-	SendAlert({ id = 'Test', text = 'This is a test normal notification!', type = 'normal', icon = 'fas fa-question-circle', align = 'top-center' })
+	SendAlert({ id = 'Test', text = 'This is a test normal notification!', type = 'warning', icon = 'fas fa-wallet', soundFile = 'tone2', time = -1})
 end)
 
 RegisterCommand('removenotif', function()
@@ -24,7 +24,8 @@ function SendAlert(data)
 		type = data.type,
 		icon = data.icon,
 		time = data.time,
-		align = data.align
+		align = data.align,
+		soundFile = data.soundFile
 	})
 end
 
