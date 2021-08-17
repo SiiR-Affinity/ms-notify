@@ -3,7 +3,7 @@ let notifications = [];
 const config = {
 	defaultColor: 'normal',
 	defaultIcon: 'fas fa-info-circle',
-	defaultAlign: 'top-right',
+	defaultAlign: 'right-center',
 	defaultTime: 6000,
 	fadeTime: 500
 }
@@ -27,8 +27,13 @@ function CreateNotification(data) {
 function ShowNotification(data) {
 	if (!data.delete) {
 		let $notification = CreateNotification(data);
+		let sound = new Howl({
+			src: [data.soundFile + ".mp3"],
+			volume: 0.2
+		})
 		$('.notif-container').append($notification);
 		data.icon != null ? $notification.prepend('<i class="' + data.icon + '"></i> ') : $notification.prepend('<i class="' + config.defaultIcon + '"></i> ');
+		data.soundFile ? sound.play() : null;
 
 		if (data.time != -1) { 
 			setTimeout(function() {
